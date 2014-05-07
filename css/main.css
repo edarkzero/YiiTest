@@ -1,0 +1,330 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	background: #3581C1;
+	/*background-image: url('../images/site/volibear.jpg');
+	background-size: cover;*/
+}
+
+#page
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background: white;
+	border: 1px solid #C9E0ED;
+	box-shadow:
+		inset 0 0 0 1px rgba(255,255,255,0.16),
+		0 3px 15px -1px rgba(0,0,0,0.5);
+}
+
+#header
+{
+	margin: 0;
+	padding: 0;
+}
+
+#content
+{
+    padding: 20px;
+}
+
+#sidebar
+{
+	padding: 20px 20px 20px 0;
+}
+
+#footer
+{
+	padding: 10px;
+	margin: 10px 20px;
+	font-size: 0.8em;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+}
+
+#logo
+{
+	padding: 10px 20px;
+	font-size: 200%;
+}
+
+#mainmenu
+{
+	margin: 0 20px;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 2px;
+	background-color: rgba(53,129,193,1);
+	box-shadow:
+		inset 0 0 0 1px rgba(255,255,255,0.16),
+		0 3px 15px -1px rgba(0,0,0,0.5);
+}
+
+#mainmenu ul
+{
+	padding:6px 20px 5px 20px;
+	margin:0px;
+}
+
+#mainmenu ul li
+{
+	display: inline;
+}
+
+#mainmenu ul li a
+{
+	color:#ffffff;
+	background-color:transparent;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+	padding:5px 8px;
+}
+
+#mainmenu ul li a:hover, #mainmenu ul li.active a
+{
+	color: #707070;
+	background-color: #F0EEF4;
+	text-decoration:none;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+#mainmenu ul li a:hover
+{
+	box-shadow:
+		0 0 20px 5px rgba(255, 255, 255, 0.4),
+		inset 0 0 5px 0 rgba(255,255,255,0.9);
+}
+
+div.flash-error, div.flash-notice, div.flash-success
+{
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+}
+
+div.flash-error
+{
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+
+div.flash-notice
+{
+	background:#FFF6BF;
+	color:#514721;
+	border-color:#FFD324;
+}
+
+div.flash-success
+{
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+
+div.flash-error a
+{
+	color:#8a1f11;
+}
+
+div.flash-notice a
+{
+	color:#514721;
+}
+
+div.flash-success a
+{
+	color:#264409;
+}
+
+div.form .rememberMe label
+{
+	display: inline;
+}
+
+div.view
+{
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #C9E0ED;
+}
+
+div.breadcrumbs
+{
+	font-size: 0.9em;
+	padding: 5px 20px;
+}
+
+div.breadcrumbs span
+{
+	font-weight: bold;
+}
+
+div.search-form
+{
+	padding: 10px;
+	margin: 10px 0;
+	background: #eee;
+}
+
+.portlet
+{
+
+}
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	background:#EFFDFF;
+}
+
+.portlet-content ul
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet-content li
+{
+	padding: 2px 0 4px 0px;
+}
+
+.operations
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.operations li
+{
+	padding-bottom: 2px;
+}
+
+.operations li a
+{
+	font: bold 12px Arial;
+	color: #0066A4;
+	display: block;
+	padding: 2px 0 2px 8px;
+	line-height: 15px;
+	text-decoration: none;
+}
+
+.operations li a:visited
+{
+	color: #0066A4;
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+
+.zocial-container
+{
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.zocial-container .zocial-wrapper
+{
+	position: relative;
+	width: 50%;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.zocial {
+	position: relative;
+	float: left;
+	display: block;
+	margin: 0px 5px;
+	padding: 5px;
+	width: 30px;
+	height: 30px;
+
+	border-radius: 3px;
+
+	background-color: #af426b;
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.4), transparent);
+
+	box-shadow:
+		inset 0 0 0 1px rgba(255,255,255,0.1),
+		inset 0 4px 7px -4px rgba(255,255,255,0.7),
+		inset 0 56px 47px -41px rgba(255,255,255,0),
+		0 0 8px -1px rgba(0,0,0,0.5);
+	transition:
+		box-shadow 150ms ease-in-out,
+		undefined undefined undefined,
+		undefined undefined undefined;
+
+	color: rgba(255,255,255,0.9);
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.7);
+}
+.zocial:hover {
+	box-shadow:
+		inset 0 0 2px 1px rgba(255,255,255,0.15),
+		inset 0 4px 7px -4px rgba(255,255,255,0.7),
+		inset 0 56px 47px -41px rgba(255,255,255,0.2),
+		0 0 8px -1px rgba(0,0,0,0.85);
+}
+.zocial {
+	/*padding-left: 44px;*/
+	background-repeat: no-repeat, no-repeat;
+	text-align: left;
+}
+
+.zocial.google
+{
+	background-color: #AA1E1C;
+	background-image: url('../images/site/google.png'), linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+	background-position: 50% 50%, left top;
+	background-size: 30px auto, auto auto;
+}
+
+.zocial.twitter
+{
+	background-color: #279BCE;
+	background-image: url('../images/site/twitter.png'), linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+	background-position: 50% 50%, left top;
+	background-size: 30px auto, auto auto;
+}
+
+.zocial.facebook
+{
+	background-color: #4364AA;
+	background-image: url('../images/site/facebook.png'), linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+	background-position: 50% 50%, left top;
+	background-size: 30px auto, auto auto;
+}
