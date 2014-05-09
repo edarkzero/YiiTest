@@ -1,31 +1,45 @@
 <?php
 class DataParser
 {
-    public static function toHtmlSelectOptions($model,$id,$name,$valueAttr,$contenAttr,$multiple = false)
-    {
-        $htmlOutput = '<select ';
-        if($multiple) $htmlOutput .= 'multiple';
-        $htmlOutput .= ' id="'.$id.'" name="'.$name.'">';
+	public static function toHtmlSelectOptions($model, $id, $name, $valueAttr, $contenAttr, $multiple = false, $addAllOption = false, $customOptions = NULL)
+	{
+		$htmlOutput = '<select ';
+		if ($multiple)
+			$htmlOutput .= 'multiple';
+		$htmlOutput .= ' id="' . $id . '" name="' . $name . '">';
 
-        if(isset($model))
-        {
-            if(is_array($model))
-            {
-                foreach($model as $data)
-                {
-                    $htmlOutput .= '<option value="'.$data->{$valueAttr}.'">'.$data->{$contenAttr}.'</option>';
-                }
-            }
-            else
-                $htmlOutput .= '<option value="'.$model->{$valueAttr}.'">'.$model->{$contenAttr}.'</option>';
-        }
+		if (isset($model))
+		{
+			if ($addAllOption)
+				$htmlOutput .= '<option value="-1">' . Yii::t('app', 'Select all') . '</option>';
 
-        else
-            $htmlOutput .= '<option>'.Yii::t('app','No results found').'</option>';
+			if(isset($customOptions) && is_array($customOptions))
+			{
+				foreach($customOptions as $option)
+				{
+					$htmlOutput .= '<option value="' . $option['value'] . '">' . $option['text'] . '</option>';
+				}
+			}
 
-        $htmlOutput .= '</select>';
-        return $htmlOutput;
-    }
+			if (is_array($model))
+			{
+				foreach ($model as $data)
+				{
+					$htmlOutput .= '<option value="' . $data->{$valueAttr} . '">' . $data->{$contenAttr} . '</option>';
+				}
+			}
+			else
+				$htmlOutput .= '<option value="' . $model->{$valueAttr} . '">' . $model->{$contenAttr} . '</option>';
+
+		}
+
+		else
+			$htmlOutput .= '<option>' . Yii::t('app', 'No results found') . '</option>';
+
+		$htmlOutput .= '</select>';
+
+		return $htmlOutput;
+	}
 
     /**
      * Convierte la data de un modelo dentro de un array a un array clave valor compatible con listas CHtml
