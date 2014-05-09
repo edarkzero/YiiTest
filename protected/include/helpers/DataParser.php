@@ -1,6 +1,5 @@
 <?php
 
-
 	class DataParser
 	{
 		public static function toHtmlSelectOptions($model, $id, $name, $valueAttr, $contenAttr, $multiple = false, $addAllOption = false, $customOptions = NULL)

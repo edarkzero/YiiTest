@@ -32,14 +32,15 @@
 			//Register custom jquery and jquery-ui
 			'clientScript' => array(
 				'packages' => array(
-					'jquery'    => array(
+					'jquery'              => array(
 						'baseUrl' => Yii::app()->request->basePath . '/test/scripts/jquery-ui/js',
-						'js'      => array('jquery-1.10.2.js')
+						'js'      => array('jquery-1.10.2.js'),
 					),
-					'jquery.ui' => array(
+					'jquery.ui'           => array(
 						'baseUrl' => Yii::app()->request->basePath . '/test/scripts/jquery-ui/js',
 						'js'      => array('jquery-ui-1.10.4.custom.min.js'),
 					),
+					'coreScriptsPosition' => CClientScript::POS_END,
 				)
 			),
 			'user'         => array(
@@ -47,14 +48,14 @@
 				'allowAutoLogin' => true,
 			),
 
-			'urlManager'=>array(
-				'urlFormat'=>'path',
-				'showScriptName'=>false,
-				'caseSensitive'=>false,
-				'rules'=>array(
-					'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-					'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-					'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+			'urlManager'   => array(
+				'urlFormat'      => 'path',
+				'showScriptName' => false,
+				'caseSensitive'  => false,
+				'rules'          => array(
+					'<controller:\w+>/<id:\d+>'              => '<controller>/view',
+					'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+					'<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
 				),
 			),
 
