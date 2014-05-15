@@ -47,6 +47,8 @@
 				imagepng($im, $cache, 100);
 
 			imagedestroy($im);
+
+			return $cache;
 		}
 
 		public static function simpleImageWatermark($originalImage, $watermarkImage, $saveFile = NULL, $outputFileTipe = 'jpg')
@@ -72,7 +74,7 @@
 
 			// Copy the stamp image onto our photo using the margin offsets and the photo
 			// width to calculate positioning of the stamp.
-			imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+			imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 50);
 
 			// Output and free memory
 
