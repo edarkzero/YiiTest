@@ -57,14 +57,17 @@
 			//$fileRandomValue = 0;
 			$cache = $tempFolder . $saveFile . '.' . $outputFileTipe;
 
-			// Load the stamp and the photo to apply the watermark to
-			$stamp = imagecreatefrompng($watermarkImage);
-
 			if (strstr($originalImage, '.jpg') !== false)
 				$im = imagecreatefromjpeg($originalImage);
 
 			elseif (strstr($originalImage, '.png') !== false)
 				$im = imagecreatefrompng($originalImage);
+
+			if (strstr($originalImage, '.jpg') !== false)
+				$stamp = imagecreatefromjpeg($watermarkImage);
+
+			elseif (strstr($originalImage, '.png') !== false)
+				$stamp = imagecreatefrompng($watermarkImage);
 
 			// Set the margins for the stamp and get the height/width of the stamp image
 			$marge_right = 10;
@@ -74,7 +77,8 @@
 
 			// Copy the stamp image onto our photo using the margin offsets and the photo
 			// width to calculate positioning of the stamp.
-			imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 50);
+			//imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+			imagecopymerge($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 50);
 
 			// Output and free memory
 
