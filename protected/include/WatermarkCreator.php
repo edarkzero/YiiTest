@@ -1,87 +1,99 @@
 <?php
-class WatermarkCreator
-{
-    public static function translucentWatermark($originalImage, $watermark, $saveFile = null, $outputFileTipe = 'jpg')
-    {
-        $tempFolder = "temp/";
-        //$fileRandomValue = 0;
-        $cache = $tempFolder . $saveFile . '.' . $outputFileTipe;
 
-        // Load the stamp and the photo to apply the watermark to
+	class WatermarkCreator
+	{
+		const FONT_PIXEL = 2.5;
 
-        if (strstr($originalImage, '.jpg') !== false)
-            $im = imagecreatefromjpeg($originalImage);
+		public static function translucentStringWatermark($originalImage, $watermark, $saveFile = 'noname', $outputFileTipe = 'jpg')
+		{
+			$tempFolder = "temp/";
+			//$fileRandomValue = 0;
+			$cache = $tempFolder . $saveFile . '.' . $outputFileTipe;
 
-        elseif (strstr($originalImage, '.png') !== false)
-            $im = imagecreatefrompng($originalImage);
+			// Load the stamp and the photo to apply the watermark to
 
-        // First we create our stamp image manually from GD
-        $stamp = imagecreatetruecolor(100, 70);
-        imagefilledrectangle($stamp, 0, 0, 99, 69, 0x0000FF);
-        imagefilledrectangle($stamp, 9, 9, 90, 60, 0xFFFFFF);
-        //$im = imagecreatefromjpeg('photo.jpeg');
-        imagestring($stamp, 5, 20, 20, 'libGD', 0x0000FF);
-        imagestring($stamp, 3, 20, 40, '(c) 2007-9', 0x0000FF);
+			if (strstr($originalImage, '.jpg') !== false || strstr($originalImage, '.jpg') !== false)
+				$im = imagecreatefromjpeg($originalImage);
 
-        // Set the margins for the stamp and get the height/width of the stamp image
-        $marge_right = 10;
-        $marge_bottom = 10;
-        $sx = imagesx($stamp);
-        $sy = imagesy($stamp);
+			elseif (strstr($originalImage, '.png') !== false)
+				$im = imagecreatefrompng($originalImage);
 
-        // Merge the stamp onto our photo with an opacity of 50%
-        imagecopymerge($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 50);
+			//Get the length of the string watermark and his font size
+			$stampFontSize = 3;
+			$stampWidth = strlen($watermark) * $stampFontSize * self::FONT_PIXEL;
 
-        // Save the image to file and free memory
-        imagepng($im, $cache);
-        imagedestroy($im);
-    }
+			// First we create our stamp image manually from GD
+			$stamp = imagecreatetruecolor($stampWidth, 25);
+			/*imagefilledrectangle($stamp, 0, 0, 99, 69, 0x0000FF);
+			imagefilledrectangle($stamp, 9, 9, 90, 60, 0xFFFFFF);*/
+			//$im = imagecreatefromjpeg('photo.jpeg');
+			imagestring($stamp, $stampFontSize, 10, 5, $watermark, 0xFFFFFF);
+			//imagestring($stamp, 3, 20, 40, '(c) 2007-9', 0x0000FF);
 
-    public static function simpleWaterMark($originalImage, $watermarkImage, $saveFile = null, $outputFileTipe = 'jpg')
-    {
-        $tempFolder = "temp/";
-        //$fileRandomValue = 0;
-        $cache = $tempFolder . $saveFile . '.' . $outputFileTipe;
+			// Set the margins for the stamp and get the height/width of the stamp image
+			$marge_right = 10;
+			$marge_bottom = 10;
+			$sx = imagesx($stamp);
+			$sy = imagesy($stamp);
 
-        // Load the stamp and the photo to apply the watermark to
-        $stamp = imagecreatefrompng($watermarkImage);
+			// Merge the stamp onto our photo with an opacity of 50%
+			imagecopymerge($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp), 50);
 
-        if (strstr($originalImage, '.jpg') !== false)
-            $im = imagecreatefromjpeg($originalImage);
+			// Save the image to file and free memory
+			if (strstr($originalImage, '.jpg') !== false)
+				imagejpeg($im, $cache, 100);
 
-        elseif (strstr($originalImage, '.png') !== false)
-            $im = imagecreatefrompng($originalImage);
+			elseif (strstr($originalImage, '.png') !== false)
+				imagepng($im, $cache, 100);
 
-        // Set the margins for the stamp and get the height/width of the stamp image
-        $marge_right = 10;
-        $marge_bottom = 10;
-        $sx = imagesx($stamp);
-        $sy = imagesy($stamp);
+			imagedestroy($im);
+		}
 
-        // Copy the stamp image onto our photo using the margin offsets and the photo
-        // width to calculate positioning of the stamp.
-        imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+		public static function simpleImageWatermark($originalImage, $watermarkImage, $saveFile = NULL, $outputFileTipe = 'jpg')
+		{
+			$tempFolder = "temp/";
+			//$fileRandomValue = 0;
+			$cache = $tempFolder . $saveFile . '.' . $outputFileTipe;
 
-        // Output and free memory
+			// Load the stamp and the photo to apply the watermark to
+			$stamp = imagecreatefrompng($watermarkImage);
 
-        /*while(file_exists($cache))
-        {
-            $fileRandomValue = rand(0,getrandmax());
-            $saveFile = $saveFile.$fileRandomValue;
-            $cache = $tempFolder.$saveFile.'.'.$outputFileTipe;
-        }*/
+			if (strstr($originalImage, '.jpg') !== false)
+				$im = imagecreatefromjpeg($originalImage);
 
-        if ($outputFileTipe == 'jpg')
-            imagejpeg($im, $cache);
+			elseif (strstr($originalImage, '.png') !== false)
+				$im = imagecreatefrompng($originalImage);
 
-        elseif ($outputFileTipe == 'png')
-            imagepng($im, $cache);
+			// Set the margins for the stamp and get the height/width of the stamp image
+			$marge_right = 10;
+			$marge_bottom = 10;
+			$sx = imagesx($stamp);
+			$sy = imagesy($stamp);
 
-        imagedestroy($im);
+			// Copy the stamp image onto our photo using the margin offsets and the photo
+			// width to calculate positioning of the stamp.
+			imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
 
-        return $cache;
+			// Output and free memory
 
-        /*$fp = fopen($cache, 'rb'); # stream the image directly from the cachefile
-        fpassthru($fp);*/
-    }
-}
+			/*while(file_exists($cache))
+			{
+				$fileRandomValue = rand(0,getrandmax());
+				$saveFile = $saveFile.$fileRandomValue;
+				$cache = $tempFolder.$saveFile.'.'.$outputFileTipe;
+			}*/
+
+			if ($outputFileTipe == 'jpg')
+				imagejpeg($im, $cache);
+
+			elseif ($outputFileTipe == 'png')
+				imagepng($im, $cache);
+
+			imagedestroy($im);
+
+			return $cache;
+
+			/*$fp = fopen($cache, 'rb'); # stream the image directly from the cachefile
+			fpassthru($fp);*/
+		}
+	}
