@@ -16,6 +16,8 @@
 		'import'     => array(
 			'application.models.*',
 			'application.components.*',
+			'application.include.*',
+			'application.include.helpers.*',
 		),
 
 		'modules'    => array(

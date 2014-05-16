@@ -140,4 +140,12 @@ class SiteController extends Controller
 	{
 		$this->render('social');
 	}
+
+	public function actionOrder_Array()
+	{
+		$data = array(array('valor' => 10),array('valor' => 50),array('valor' => 75),array('valor' => 5),array('valor' => 100));
+		$dataSorted = ArrayTools::ORDER_ARRAY($data,'valor');
+		$dataSortedInv = ArrayTools::ORDER_ARRAY($data,'valor',true);
+		$this->render('order_array',array('data' => $data,'dataSorted' => $dataSorted,'dataSortedInv' => $dataSortedInv));
+	}
 }

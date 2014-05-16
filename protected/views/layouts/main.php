@@ -40,6 +40,7 @@
 				array('label' => 'Home', 'url' => array('/site/index')),
 				array('label' => 'Map', 'url' => array('/site/map')),
 				array('label' => 'Social', 'url' => array('/site/social')),
+				array('label' => 'Array Order', 'url' => array('/site/order_array')),
 				array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
 				array('label' => 'Contact', 'url' => array('/site/contact')),
 				array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
