@@ -61,19 +61,20 @@
 				),
 			),
 
-			'db'           => array(
+			/*'db'           => array(
 				'connectionString' => 'sqlite:' . dirname(__FILE__) . '/../data/testdrive.db',
+			),*/
+
+			'db'           => array(
+				'connectionString'   => 'mysql:host=pedro-pc;dbname=onbizz-07-05-2014',
+				'username'           => 'root',
+				'password'           => '123456',
+				'charset'            => 'utf8',
+				'emulatePrepare'     => true,
+				'enableProfiling'    => true,
+				'enableParamLogging' => true,
 			),
-			// uncomment the following to use a MySQL database
-			/*
-			'db'=>array(
-				'connectionString' => 'mysql:host=localhost;dbname=testdrive',
-				'emulatePrepare' => true,
-				'username' => 'root',
-				'password' => '',
-				'charset' => 'utf8',
-			),
-			*/
+
 			'errorHandler' => array(
 				// use 'site/error' action to display errors
 				'errorAction' => 'site/error',
