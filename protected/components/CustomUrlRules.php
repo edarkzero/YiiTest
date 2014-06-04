@@ -14,7 +14,7 @@
 
 		public function createUrl($manager, $route, $params, $ampersand)
 		{
-			if(stripos($route,'gii') === false)
+			if(stripos($route,'gii') === false && stripos($route,'hybridauth') === false)
 			{
 				//Si no existe param lang debe crearse un param lang con los datos de session
 				if (!isset($params['lang']))
@@ -33,7 +33,7 @@
 
 		public function parseUrl($manager, $request, $pathInfo, $rawPathInfo)
 		{
-			if(stripos($pathInfo,'gii') === false)
+			if(stripos($pathInfo,'gii') === false  && stripos($pathInfo,'hybridauth') === false)
 			{
 				if (preg_match('%^(\w+)(/(\w+))(/(\w+))?$%', $pathInfo, $matches))
 				{

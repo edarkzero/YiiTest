@@ -50,8 +50,8 @@ class HybridAuthIdentity extends CUserIdentity
                 "Facebook" => array(
                     "enabled" => true,
                     "keys"    => array(
-                        "id"     => "495997777164728",
-                        "secret" => "9323fc1eb0ef31a5714c28dadeb73824",
+                        "id"     => "1465996826970478",
+                        "secret" => "4e9105f35bef2847afc316db50a95a51",
                     ),
                     "scope"   => "email, publish_stream"
                 ),
