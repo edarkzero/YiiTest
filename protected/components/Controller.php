@@ -20,4 +20,22 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	protected function beforeAction($action)
+	{
+		$languageTrans = array('es' => 'es_ve','en' => 'en_us');
+
+		if(isset($_GET['lang']))
+		{
+			Yii::app()->setLanguage($languageTrans[$_GET['lang']]);
+			Yii::app()->session['lang'] = Yii::app()->getLanguage();
+		}
+
+		elseif(isset(Yii::app()->session['lang']))
+		{
+			Yii::app()->setLanguage(Yii::app()->session['lang']);
+		}
+
+		return parent::beforeAction($action);
+	}
 }

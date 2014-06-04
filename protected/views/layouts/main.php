@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 	<link href="<?php echo Yii::app()->getBaseUrl(true) . '/scripts/jquery-ui/'; ?>css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" type="image/x-icon" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
@@ -37,17 +38,21 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu', array(
 			'items' => array(
-				array('label' => 'Home', 'url' => array('/site/index')),
-				array('label' => 'Map', 'url' => array('/site/map')),
-				array('label' => 'Social', 'url' => array('/site/social')),
-				array('label' => 'Array Order', 'url' => array('/site/order_array')),
-				array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-				array('label' => 'Contact', 'url' => array('/site/contact')),
-				array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-				array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+				array('label' => Yii::t('app','Home'), 'url' => array('/site/index')),
+				array('label' => Yii::t('app','Map'), 'url' => array('/site/map')),
+				array('label' => Yii::t('app','Social'), 'url' => array('/site/social')),
+				array('label' => Yii::t('app','Array Order'), 'url' => array('/site/order_array')),
+				array('label' => Yii::t('app','About'), 'url' => array('/site/page', 'view' => 'about')),
+				array('label' => Yii::t('app','Contact'), 'url' => array('/site/contact')),
+				array('label' => Yii::t('app','Login'), 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+				array('label' => Yii::t('app','Logout').' (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
+				array('label' => '|'),
+				array('label' => 'En', 'url' => array('','lang' => 'en')),
+				array('label' => 'Es', 'url' => array('','lang' => 'es')),
 			),
 		)); ?>
 	</div>
+
 	<!-- mainmenu -->
 	<?php if (isset($this->breadcrumbs)): ?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
