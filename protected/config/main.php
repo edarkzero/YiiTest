@@ -8,7 +8,7 @@
 	return array(
 		'basePath'   => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
 		'name'       => 'Edarkzero Playground',
-		'language' => 'en',
+		'language' => 'en_us',
 		'sourceLanguage' => 'en',
 
 		// preloading 'log' component

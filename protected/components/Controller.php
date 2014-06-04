@@ -36,6 +36,11 @@ class Controller extends CController
 			Yii::app()->setLanguage(Yii::app()->session['lang']);
 		}
 
+		else
+		{
+			Yii::app()->session['lang'] = Yii::app()->getLanguage();
+		}
+
 		return parent::beforeAction($action);
 	}
 }

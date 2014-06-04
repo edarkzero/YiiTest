@@ -15,14 +15,14 @@
 		public function createUrl($manager, $route, $params, $ampersand)
 		{
 			//Si no existe param lang debe crearse un param lang con los datos de session
-			if (!isset($params['lang']) && !Yii::app()->request->isAjaxRequest)
+			if (!isset($params['lang']))
 			{
 				$stringParams = $this->paramsToUrl($params);
 				$params['lang'] = $this->languageTransInv[Yii::app()->session['lang']];
 				return $params['lang'] . '/' . $route.$stringParams;
 			}
 
-			elseif(!Yii::app()->request->isAjaxRequest)
+			elseif(stripos($route,'gii') === false)
 				return $params['lang'] . '/' . $route;
 
 			return false; // this rule does not apply
