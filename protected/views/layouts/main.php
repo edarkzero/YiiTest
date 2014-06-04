@@ -40,12 +40,14 @@
 			'items' => array(
 				array('label' => Yii::t('app','Home'), 'url' => array('/site/index')),
 				array('label' => Yii::t('app','Map'), 'url' => array('/site/map')),
-				array('label' => Yii::t('app','Social'), 'url' => array('/site/social')),
+				array('label' => Yii::t('app','Social networks'), 'url' => array('/site/social')),
 				array('label' => Yii::t('app','Array Order'), 'url' => array('/site/order_array')),
-				array('label' => Yii::t('app','About'), 'url' => array('/site/page', 'view' => 'about')),
+				array('label' => Yii::t('app','About'), 'url' => array('/site/page', 'view' => 'about','test' => '1011')),
 				array('label' => Yii::t('app','Contact'), 'url' => array('/site/contact')),
 				array('label' => Yii::t('app','Login'), 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
 				array('label' => Yii::t('app','Logout').' (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
+				array('label' => '|'),
+				array('label' => 'Gii', 'url' => array('/gii')),
 				array('label' => '|'),
 				array('label' => 'En', 'url' => array('','lang' => 'en')),
 				array('label' => 'Es', 'url' => array('','lang' => 'es')),
@@ -64,9 +66,9 @@
 
 	<div class="clear"></div>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by Edgar Cardona.<br />
-		All Rights Reserved.<br />
+	<div id="footer"><?php echo Yii::t('app','Copyright {copy} {date} by {name}.{separator}All Rights Reserved.{separator}',array(
+			'{copy}' => '&copy;','{date}' => date('Y'),'{separator}' => '<br />','{name}' => 'Edgar Cardona'
+		)); ?>
 		<?php echo Yii::powered(); ?>
 	</div>
 	<!-- footer -->

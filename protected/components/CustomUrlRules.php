@@ -14,34 +14,40 @@
 
 		public function createUrl($manager, $route, $params, $ampersand)
 		{
-			//Si no existe param lang debe crearse un param lang con los datos de session
-			if (!isset($params['lang']))
+			if(stripos($route,'gii') === false)
 			{
-				$stringParams = $this->paramsToUrl($params);
-				$params['lang'] = $this->languageTransInv[Yii::app()->session['lang']];
-				return $params['lang'] . '/' . $route.$stringParams;
-			}
+				//Si no existe param lang debe crearse un param lang con los datos de session
+				if (!isset($params['lang']))
+				{
+					$stringParams = $this->paramsToUrl($params);
+					$params['lang'] = $this->languageTransInv[Yii::app()->session['lang']];
+					return $params['lang'] . '/' . $route.$stringParams;
+				}
 
-			elseif(stripos($route,'gii') === false)
-				return $params['lang'] . '/' . $route;
+				else
+					return $params['lang'] . '/' . $route;
+			}
 
 			return false; // this rule does not apply
 		}
 
 		public function parseUrl($manager, $request, $pathInfo, $rawPathInfo)
 		{
-			if (preg_match('%^(\w+)(/(\w+))(/(\w+))?$%', $pathInfo, $matches))
+			if(stripos($pathInfo,'gii') === false)
 			{
-				// check $matches[1] and $matches[3] to see
-				// if they match a manufacturer and a model in the database
-				// If so, set $_GET['manufacturer'] and/or $_GET['model']
-				// and return 'car/index'
-				//throw new Exception(print_r(array_merge($matches,array('$pathInfo' => $pathInfo,'rawPathInfo' => $rawPathInfo)),true));
-
-				if(isset($this->languageTrans[$matches[1]]))
+				if (preg_match('%^(\w+)(/(\w+))(/(\w+))?$%', $pathInfo, $matches))
 				{
-					$_GET['lang'] = $matches[1];
-					return $matches[3].$matches[4];
+					// check $matches[1] and $matches[3] to see
+					// if they match a manufacturer and a model in the database
+					// If so, set $_GET['manufacturer'] and/or $_GET['model']
+					// and return 'car/index'
+					//throw new Exception(print_r(array_merge($matches,array('$pathInfo' => $pathInfo,'rawPathInfo' => $rawPathInfo)),true));
+
+					if(isset($this->languageTrans[$matches[1]]))
+					{
+						$_GET['lang'] = $matches[1];
+						return $matches[3].$matches[4];
+					}
 				}
 			}
 			return false; // this rule does not apply

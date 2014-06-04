@@ -19,4 +19,6 @@
 	var defaultUI = <?php echo isset($mapOptions['defaultUI']) ? $mapOptions['defaultUI'] : "null"; ?>;
 </script>
 
+<p><?php echo Yii::t('app','Helper for Google map API') ?></p>
+
 <div id="<?php if(isset($mapOptions['id'])) echo $mapOptions['id']; ?>" style="width: 600px; height: 480px; margin: 20px auto"></div>

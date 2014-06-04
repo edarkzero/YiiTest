@@ -6,6 +6,8 @@
  */
 ?>
 
+<p><?php echo Yii::t('app','Function to sort arrays, using binary sort.'); ?></p>
+
 <div class="well">
 	<p><?php echo Yii::t('app','Before order'); ?></p>
 	<?php DataShow::WALK_ARRAY($data); ?>

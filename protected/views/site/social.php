@@ -7,6 +7,8 @@
 	 */
 ?>
 
+<p><?php echo Yii::t('app','Social Hub using hybridauth API'); ?></p>
+
 <div class="zocial-container">
 	<div class="zocial-wrapper">
 		<a class="zocial google" href="<?php echo $this->createUrl('/hybridauth/login', array('provider' => 'google')); ?>"></a>
