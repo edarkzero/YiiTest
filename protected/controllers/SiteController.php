@@ -103,8 +103,15 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+		if(isset(Yii::app()->user->type) && Yii::app()->user->type === 'social_user')
+			$redirectUrl = Yii::app()->session['lastUrl'];
+
+		else
+			$redirectUrl = Yii::app()->homeUrl;
+
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+
+		$this->redirect($redirectUrl);
 	}
 
 	public function actionMap()

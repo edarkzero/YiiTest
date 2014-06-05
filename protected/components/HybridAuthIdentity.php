@@ -37,12 +37,8 @@ class HybridAuthIdentity extends CUserIdentity
                 "Google"   => array(
                     "enabled"     => true,
                     "keys"        => array(
-                        //"id"     => "968404240122-ccgaejauo569eoqdquj9trn8fbg244no.apps.googleusercontent.com",
-                        //"id"     => "310798286276-qgce9rp9rtqcgkbbdishraht1cgthg4p.apps.googleusercontent.com",
-                        "id"     => "423332839918-t6jvp3tcahcift8o5j98nejk9tdbt85o.apps.googleusercontent.com",
-                        //"secret" => "hSAWabnS9otVAsxEJw9q18xl",
-                        //"secret" => "svcvNJXKbr16qNdxmVJNvugK",
-                        "secret" => "c0DDL6u8ewX_A-Yq86l01wAn",
+                        "id"     => "650752439236-qvf1dqv8npotiiautu97jd2jks9rf0d7.apps.googleusercontent.com",
+                        "secret" => "VtQHO0DGpqlpHxNV6Spq-9RV",
                     ),
                     "scope"       => "https://www.googleapis.com/auth/userinfo.profile " . "https://www.googleapis.com/auth/userinfo.email",
                     "access_type" => "online",
@@ -111,10 +107,19 @@ class HybridAuthIdentity extends CUserIdentity
 
     public function login()
     {
+	    //Simplest hybridauth login
+	    $duration = 3600*24*30;
+	    $this->username = $this->userProfile->displayName;
+	    $this->setState('username',$this->username);
+	    $this->setState('loginProvider',$this->adapter->id);
+	    $this->setState('type','social_user');
+	    Yii::app()->user->login($this, $duration);
+	    return true;
+
         /*$path = Yii::getPathOfAlias('application.modules.backend.models');
         require_once $path . '/SocialNetwork.php'; //path to the Auth php file within HybridAuth folder*/
 
-        $this->username = $this->userProfile->displayName; //CUserIdentity
+        /*$this->username = $this->userProfile->displayName; //CUserIdentity
         $socialNetworkID = $this->adapter->id; //TODO: Revisar un identificador unico de red social
 
         $model = new Visitantes();
@@ -148,7 +153,7 @@ class HybridAuthIdentity extends CUserIdentity
 	        $identity->setState('type',Visitantes::label());
 
             Yii::app()->user->login($identity, 86400);
-        }
+        }*/
     }
 
     public function authenticate()

@@ -107,5 +107,6 @@
 		'params'     => array(
 			// this is used in contact page
 			'adminEmail' => 'edgarcardona87@gmail.com',
+			'localhost_domain' => 'http://edarkzero.playground.test/test/hybridauth/socialLogin?hauth.done=Google'
 		),
 	);

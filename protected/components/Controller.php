@@ -32,14 +32,13 @@ class Controller extends CController
 		}
 
 		elseif(isset(Yii::app()->session['lang']))
-		{
 			Yii::app()->setLanguage(Yii::app()->session['lang']);
-		}
 
 		else
-		{
 			Yii::app()->session['lang'] = Yii::app()->getLanguage();
-		}
+
+		if(!Yii::app()->request->isAjaxRequest && $this->id !== 'hybridauth' && $this->id !== 'gii')
+			Yii::app()->session['lastUrl'] = Yii::app()->request->getUrl();
 
 		return parent::beforeAction($action);
 	}
