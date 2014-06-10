@@ -27,6 +27,7 @@
 			/*imagefilledrectangle($stamp, 0, 0, 99, 69, 0x0000FF);
 			imagefilledrectangle($stamp, 9, 9, 90, 60, 0xFFFFFF);*/
 			//$im = imagecreatefromjpeg('photo.jpeg');
+			$watermark = utf8_decode($watermark);
 			imagestring($stamp, $stampFontSize, 10, 5, $watermark, 0xFFFFFF);
 			//imagestring($stamp, 3, 20, 40, '(c) 2007-9', 0x0000FF);
 
