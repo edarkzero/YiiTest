@@ -155,4 +155,51 @@ class SiteController extends Controller
 		$dataSortedInv = ArrayTools::ORDER_ARRAY($data,'valor',true);
 		$this->render('order_array',array('data' => $data,'dataSorted' => $dataSorted,'dataSortedInv' => $dataSortedInv));
 	}
+
+	public function actionFile_uploader()
+	{
+		$uploaderConfig = array();
+		$uploaderConfig['id'] = 'fileupload';
+		$uploaderConfig['id_js'] = '#'.$uploaderConfig['id'];
+		$uploaderConfig['id_progress'] = 'progress';
+		$uploaderConfig['id_js_progress'] = '#'.$uploaderConfig['id_progress'];
+
+		$this->render('file_uploader',array(
+			'uploaderConfig' => $uploaderConfig
+		));
+	}
+
+	public function actionUpload()
+	{
+		$ds = DIRECTORY_SEPARATOR;
+		$storeFolder = 'uploads';
+		$fileMaxSize = 10485760; //10MiB
+		$fileMaxSizeString = (string)($fileMaxSize/1024/1024).' MiB';
+
+		if (!empty($_FILES)) {
+
+			if($_FILES['file']['size'] > $fileMaxSize)
+				throw new CHttpException(415, 'The file is too large to upload (Max '.$fileMaxSizeString.').');
+
+			$tempFile = $_FILES['file']['tmp_name'];
+			$targetPath = Yii::getPathOfAlias('local') . $ds. $storeFolder . $ds;
+			$targetFile =  $targetPath. $_FILES['file']['name'];
+			if(!file_exists($targetFile))
+				move_uploaded_file($tempFile,$targetFile);
+			else
+				throw new CHttpException(415, 'The file already exist.');
+		}
+
+		else
+			throw new CHttpException(415, 'Unsupported Media Type.');
+
+		/*Multiples archivos
+		 foreach ($_FILES["pictures"]["error"] as $key => $error) {
+			if ($error == UPLOAD_ERR_OK) {
+				$tmp_name = $_FILES["pictures"]["tmp_name"][$key];
+				$name = $_FILES["pictures"]["name"][$key];
+				move_uploaded_file($tmp_name, "data/$name");
+			}
+		}*/
+	}
 }

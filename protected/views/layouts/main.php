@@ -42,6 +42,7 @@
 				array('label' => Yii::t('app','Map'), 'url' => array('/site/map')),
 				array('label' => Yii::t('app','Social networks'), 'url' => array('/site/social')),
 				array('label' => Yii::t('app','Array Order'), 'url' => array('/site/order_array')),
+				array('label' => Yii::t('app','File uploader'), 'url' => array('/site/file_uploader')),
 				array('label' => Yii::t('app','About'), 'url' => array('/site/page', 'view' => 'about','test' => '1011')),
 				array('label' => Yii::t('app','Contact'), 'url' => array('/site/contact')),
 				array('label' => Yii::t('app','Login'), 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),

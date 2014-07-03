@@ -23,5 +23,6 @@ return array(
 	'Submit' => 'Enviar',
 	'Fields with {required} are required.' => 'Los campos con {required} son requeridos.',
 	'Copyright {copy} {date} by {name}.{separator}All Rights Reserved.{separator}' => 'Derechos de autor {copy} {date} por {name}.{separator}Todos los derechos reservados.{separator}',
-	'Please fill out the following form with your login credentials:' => 'Por favor complete el siguiente formulario con sus datos de acceso:'
+	'Please fill out the following form with your login credentials:' => 'Por favor complete el siguiente formulario con sus datos de acceso:',
+	'File uploader using {ext}' => 'Subida de archivos usando {ext}'
 );
