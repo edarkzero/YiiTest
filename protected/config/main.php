@@ -72,7 +72,7 @@
 			),*/
 
 			'db'           => array(
-				'connectionString'   => 'mysql:host=pedro-pc;dbname=onbizz-07-05-2014',
+				'connectionString'   => 'mysql:host=pedro-pc;dbname=onbizz-03-07-2014',
 				'username'           => 'root',
 				'password'           => '123456',
 				'charset'            => 'utf8',
