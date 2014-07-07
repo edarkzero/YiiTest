@@ -178,6 +178,9 @@ class SiteController extends Controller
 
 		if (!empty($_FILES)) {
 
+			if($_FILES['file']['type'] != image_type_to_mime_type(IMAGETYPE_JPEG) && $_FILES['file']['type'] != image_type_to_mime_type(IMAGETYPE_PNG))
+				throw new CHttpException(415, 'Unsupported Media Type. ('.$_FILES['file']['type'].')');
+
 			if($_FILES['file']['size'] > $fileMaxSize)
 				throw new CHttpException(415, 'The file is too large to upload (Max '.$fileMaxSizeString.').');
 
@@ -191,7 +194,7 @@ class SiteController extends Controller
 		}
 
 		else
-			throw new CHttpException(415, 'Unsupported Media Type.');
+			throw new CHttpException(415, 'Internal problem, sorry.');
 
 		/*Multiples archivos
 		 foreach ($_FILES["pictures"]["error"] as $key => $error) {
@@ -201,5 +204,10 @@ class SiteController extends Controller
 				move_uploaded_file($tmp_name, "data/$name");
 			}
 		}*/
+	}
+
+	public function actionString_compressor()
+	{
+		$this->render('string_compressor');
 	}
 }
