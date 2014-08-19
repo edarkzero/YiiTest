@@ -210,4 +210,9 @@ class SiteController extends Controller
 	{
 		$this->render('string_compressor');
 	}
+
+	public function actionIp_tools()
+	{
+		$this->render('ip_tools');
+	}
 }

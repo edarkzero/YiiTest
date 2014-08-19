@@ -26,5 +26,6 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Por favor complete el siguiente formulario con sus datos de acceso:',
 	'File uploader using {ext}' => 'Subida de archivos usando {ext}',
 	'File uploader' => 'Subida de archivos',
-	'String compressor' => 'Compresor de cadenas'
+	'String compressor' => 'Compresor de cadenas',
+	'IP tools' => 'Herramientas IP'
 );

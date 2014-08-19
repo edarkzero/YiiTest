@@ -65,7 +65,8 @@ class IpTools
 
                 foreach($attributes as $attr)
                 {
-                    $result .= $creatorlocation->{$attr}.'<br/>';
+	                if(isset($creatorlocation->{$attr}))
+                        $result .= $creatorlocation->{$attr}.'<br/>';
                 }
 
                 return $result;
