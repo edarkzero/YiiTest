@@ -335,3 +335,9 @@ div.search-form
 	padding: 10px;
 	margin: 10px;
 }
+
+.wrapper-block
+{
+	position: relative;
+	width: 100%;
+}

@@ -215,4 +215,9 @@ class SiteController extends Controller
 	{
 		$this->render('ip_tools');
 	}
+
+	public function actionFancybox()
+	{
+		$this->render('fancybox');
+	}
 }

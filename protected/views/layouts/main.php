@@ -45,6 +45,7 @@
 				array('label' => Yii::t('app','File uploader'), 'url' => array('/site/file_uploader')),
 				array('label' => Yii::t('app','String compressor'), 'url' => array('/site/string_compressor')),
 				array('label' => Yii::t('app','IP tools'), 'url' => array('/site/ip_tools')),
+				array('label' => Yii::t('app','Fancybox'), 'url' => array('/site/fancybox')),
 				array('label' => Yii::t('app','About'), 'url' => array('/site/page', 'view' => 'about','test' => '1011')),
 				array('label' => Yii::t('app','Contact'), 'url' => array('/site/contact')),
 				array('label' => Yii::t('app','Login'), 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
