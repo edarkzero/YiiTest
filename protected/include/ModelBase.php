@@ -25,10 +25,17 @@
 
 					if ($relations)
 					{
-						foreach ($relations as $relation)
+						if (is_array($relations))
+							foreach ($relations as $relation)
+							{
+								echo "Relation: " . $model->tableName() . "->" . $relation . "<br/>";
+								self::SHOW_MODEL_DATA($model->{$relation});
+							}
+
+						else
 						{
-							echo "Relation: " . $model->tableName() . "->" . $relation . "<br/>";
-							self::SHOW_MODEL_DATA($model->{$relation});
+							echo "Relation: " . $model->tableName() . "->" . $relations . "<br/>";
+							self::SHOW_MODEL_DATA($model->{$relations});
 						}
 					}
 				}
