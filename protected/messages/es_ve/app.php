@@ -27,5 +27,6 @@ return array(
 	'File uploader using {ext}' => 'Subida de archivos usando {ext}',
 	'File uploader' => 'Subida de archivos',
 	'String compressor' => 'Compresor de cadenas',
-	'IP tools' => 'Herramientas IP'
+	'IP tools' => 'Herramientas IP',
+	'Test {n}' => 'Prueba {n}'
 );

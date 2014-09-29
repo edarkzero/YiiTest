@@ -220,4 +220,9 @@ class SiteController extends Controller
 	{
 		$this->render('fancybox');
 	}
+
+	public function actionTaskbar()
+	{
+		$this->render('taskbar');
+	}
 }

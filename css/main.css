@@ -71,6 +71,7 @@ body
 #mainmenu ul li
 {
 	display: inline;
+	line-height: 25px;
 }
 
 #mainmenu ul li a
