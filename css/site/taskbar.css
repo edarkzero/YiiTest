@@ -1,13 +1,28 @@
+#taskbar
+{
+	display: block;
+	position: relative;
+	width: 100%;
+}
+
+#taskbar-content
+{
+	margin: 0 auto;
+	width: 450px;
+}
+
 #taskbar .taskbar-icon
 {
-	height: 40px;
-	width: auto;
+	height: 100px;
+	width: 100px;
+	max-height: 100px;
 	max-width: 100px;
-	margin: 20px 0px;
+	margin: 20px 20px;
 	background-color: rgba(53,129,193,1);
 	text-align: center;
-	line-height: 40px;
+	line-height: 100px;
 	border: double 5px #000000;
+	border-radius:30%;
 
 	-moz-box-shadow: 0px 5px 5px #3d3d3d;
 	-webkit-box-shadow: 0px 5px 5px #3d3d3d;
@@ -21,11 +36,11 @@
 
 #taskbar .taskbar-icon:hover
 {
-	transform: scale(0.95);
-	-webkit-transform: scale(0.95);
-	-moz-transform: scale(0.95);
-	-o-transform: scale(0.95);
-	-ms-transform: scale(0.95);
+	transform: scale(0.98);
+	-webkit-transform: scale(0.98);
+	-moz-transform: scale(0.98);
+	-o-transform: scale(0.98);
+	-ms-transform: scale(0.98);
 }
 
 #taskbar .taskbar-icon .taskbar-link
