@@ -1,7 +1,7 @@
 <?php
 
 	// uncomment the following to define a path alias
-	 Yii::setPathOfAlias('local','C:\\inetpub\\wwwroot\\test\\');
+	 Yii::setPathOfAlias('local','D:\\Wamp\\www\\test\\');
 
 	// This is the main Web application configuration. Any writable
 	// CWebApplication properties can be configured here.
@@ -37,11 +37,11 @@
 			'clientScript' => array(
 				'packages' => array(
 					'jquery'              => array(
-						'baseUrl' => Yii::app()->request->basePath . '/test/scripts/jquery-ui/js',
+						'baseUrl' => Yii::app()->basePath . '/test/scripts/jquery-ui/js',
 						'js'      => array('jquery-1.10.2.js'),
 					),
 					'jquery.ui'           => array(
-						'baseUrl' => Yii::app()->request->basePath . '/test/scripts/jquery-ui/js',
+						'baseUrl' => Yii::app()->basePath . '/test/scripts/jquery-ui/js',
 						'js'      => array('jquery-ui-1.10.4.custom.min.js'),
 					),
 					'coreScriptsPosition' => CClientScript::POS_END,
@@ -72,7 +72,7 @@
 			),*/
 
 			'db'           => array(
-				'connectionString'   => 'mysql:host=pedro-pc;dbname=onbizz-03-07-2014',
+				'connectionString'   => 'mysql:host=localhost;dbname=onbizz',
 				'username'           => 'root',
 				'password'           => '123456',
 				'charset'            => 'utf8',
