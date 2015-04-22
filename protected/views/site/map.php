@@ -17,6 +17,7 @@
 	var markersData = <?php echo isset($mapOptions['markersData']) ? $mapOptions['markersData'] : "null"; ?>;
 	var addMarkers = <?php echo isset($mapOptions['addMarkers']) ? $mapOptions['addMarkers'] : "null"; ?>;
 	var defaultUI = <?php echo isset($mapOptions['defaultUI']) ? $mapOptions['defaultUI'] : "null"; ?>;
+    var maxMarkersMsj = "<?php echo "yes" ?>";
 </script>
 
 <p><?php echo Yii::t('app','Helper for Google map API') ?></p>

@@ -8,7 +8,7 @@ var lastInfoWindows;
 var map;
 var poly;
 var polyOptions;
-var maxMarkersMsj = 'Reached the maximum number of markers available';
+var maxMarkersMsjDefault = 'Reached the maximum number of markers available';
 
 $(window).load(function(e){
 	google.maps.event.addDomListener(window, 'load', mapIni);
@@ -52,7 +52,12 @@ function mapIni()
 			if(addMarkers.limit == 0 || newMarkers.length < addMarkers.limit)
 				addNewMarker(event.latLng,addMarkers);
 			else
-				alert(maxMarkersMsj);
+            {
+                if(maxMarkersMsj)
+                    alert(maxMarkersMsj);
+                else
+                    alert(maxMarkersMsjDefault);
+            }
 		});
 	}
 }
